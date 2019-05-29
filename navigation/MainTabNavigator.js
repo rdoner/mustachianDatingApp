@@ -3,15 +3,15 @@ import { Platform } from "react-native";
 import { createStackNavigator, createMaterialTopTabNavigator } from "react-navigation";
 
 import TabBarIcon from "../components/TabBarIcon";
-import HomeScreen from "../screens/HomeScreen";
-import LinksScreen from "../screens/LinksScreen";
-import SettingsScreen from "../screens/SettingsScreen";
+import Find from "../screens/Find/Find";
+import MatchesList from "../screens/Matches/MatchesList";
+import SettingsScreen from "../screens/Settings/SettingsScreen";
 
-const HomeStack = createStackNavigator({
-  Home: HomeScreen
+const FindStack = createStackNavigator({
+  Find: Find
 });
 
-HomeStack.navigationOptions = {
+FindStack.navigationOptions = {
   tabBarLabel: "Find",
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -23,11 +23,11 @@ HomeStack.navigationOptions = {
   )
 };
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen
+const MatchesStack = createStackNavigator({
+  Matches: MatchesList
 });
 
-LinksStack.navigationOptions = {
+MatchesStack.navigationOptions = {
   tabBarLabel: "Matches",
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={Platform.OS === "ios" ? "ios-link" : "md-people"} />
@@ -63,8 +63,8 @@ const TabNavigatorConfig = {
 
 export default createMaterialTopTabNavigator(
   {
-    HomeStack,
-    LinksStack,
+    FindStack,
+    MatchesStack,
     SettingsStack
   },
   TabNavigatorConfig

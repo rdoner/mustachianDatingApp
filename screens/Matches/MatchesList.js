@@ -2,7 +2,7 @@ import React from "react";
 import { ScrollView, StyleSheet } from "react-native";
 import { Card, ListItem, Avatar } from "react-native-elements";
 
-export default class LinksScreen extends React.Component {
+export default class MatchesList extends React.Component {
   static navigationOptions = {
     header: null
   };
@@ -39,22 +39,24 @@ export default class LinksScreen extends React.Component {
 
     return (
       <ScrollView style={styles.container}>
-        {users.map((u, i) => {
+        {users.map((user, i) => {
           return (
-            <Card key={i} containerStyle={{ padding: 0 }}>
-              <ListItem
-                // key={i}
-                title={u.name}
-                leftAvatar={
-                  <Avatar
-                    rounded
-                    source={{
-                      uri: u.avatar
-                    }}
-                  />
-                }
-              />
-            </Card>
+            <TouchableOpacity onPress={navigation.navigate('MatchesShow', {user})}>
+              <Card key={i} containerStyle={{ padding: 0 }}>
+                <ListItem
+                  // key={i}
+                  title={user.name}
+                  leftAvatar={
+                    <Avatar
+                      rounded
+                      source={{
+                        uri: user.avatar
+                      }}
+                    />
+                  }
+                />
+              </Card>
+            </TouchableOpacity>
           );
         })}
       </ScrollView>

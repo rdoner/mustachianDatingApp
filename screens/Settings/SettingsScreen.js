@@ -10,8 +10,8 @@ import {
   FlatList
 } from "react-native";
 import { WebBrowser } from "expo";
-import TabBarIcon from "../components/TabBarIcon";
-import Colors from "../constants/Colors";
+import TabBarIcon from "../../components/TabBarIcon";
+import Colors from "../../constants/Colors";
 import { Input } from "react-native-elements";
 
 const photosToDisplay = [
