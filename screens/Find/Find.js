@@ -25,7 +25,7 @@ export default class Find extends React.Component {
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <Image
             style={styles.profileImg}
-            source={require("../assets/images/mrMoneyMustache.jpg")}
+            source={require("../../assets/images/mrMoneyMustache.jpg")}
             resizeMode="contain"
           />
           <View style={styles.userInfoContainer}>

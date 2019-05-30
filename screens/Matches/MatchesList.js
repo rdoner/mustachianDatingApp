@@ -1,6 +1,7 @@
 import React from "react";
-import { ScrollView, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet, TouchableOpacity } from "react-native";
 import { Card, ListItem, Avatar } from "react-native-elements";
+// import { navigation } from "react-navigation";
 
 export default class MatchesList extends React.Component {
   static navigationOptions = {
@@ -8,6 +9,7 @@ export default class MatchesList extends React.Component {
   };
 
   render() {
+    // const { navigate } = this.props.navigation;
     const users = [
       {
         name: "Carl",
@@ -41,7 +43,7 @@ export default class MatchesList extends React.Component {
       <ScrollView style={styles.container}>
         {users.map((user, i) => {
           return (
-            <TouchableOpacity onPress={navigation.navigate('MatchesShow', {user})}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate("MatchesShow")}>
               <Card key={i} containerStyle={{ padding: 0 }}>
                 <ListItem
                   // key={i}

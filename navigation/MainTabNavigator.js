@@ -5,6 +5,7 @@ import { createStackNavigator, createMaterialTopTabNavigator } from "react-navig
 import TabBarIcon from "../components/TabBarIcon";
 import Find from "../screens/Find/Find";
 import MatchesList from "../screens/Matches/MatchesList";
+import MatchesShow from "../screens/Matches/MatchesShow";
 import SettingsScreen from "../screens/Settings/SettingsScreen";
 
 const FindStack = createStackNavigator({
@@ -23,9 +24,13 @@ FindStack.navigationOptions = {
   )
 };
 
-const MatchesStack = createStackNavigator({
-  Matches: MatchesList
-});
+const MatchesStack = createStackNavigator(
+  {
+    Matches: MatchesList,
+    MatchesShow: MatchesShow
+  },
+  { initialRouteName: "Matches" }
+);
 
 MatchesStack.navigationOptions = {
   tabBarLabel: "Matches",

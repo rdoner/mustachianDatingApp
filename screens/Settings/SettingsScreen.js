@@ -28,7 +28,7 @@ export default class SettingsScreen extends React.Component {
   renderItem = item => {
     <Image
       style={styles.gridImg}
-      source={require("../assets/images/mrMoneyMustache.jpg")}
+      source={require("../../assets/images/mrMoneyMustache.jpg")}
       resizeMode="contain"
     />;
   };
@@ -39,25 +39,13 @@ export default class SettingsScreen extends React.Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          {/* <FlatList
-            data={[1, 2]}
-            style={styles.container}
-            renderItem={({item}) => {
-              <Image
-                style={styles.gridImg}
-                source={require("../assets/images/mrMoneyMustache.jpg")}
-                resizeMode="contain"
-              />
-            }}
-            numColumns={3}
-          /> */}
           <FlatList
             data={[{ key: "a" }, { key: "b" }]}
             numColumns={3}
             renderItem={({ item }) => (
               <Image
                 style={styles.gridImg}
-                source={require("../assets/images/mrMoneyMustache.jpg")}
+                source={require("../../assets/images/mrMoneyMustache.jpg")}
                 resizeMode="contain"
               />
             )}
