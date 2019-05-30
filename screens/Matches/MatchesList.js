@@ -13,7 +13,8 @@ export default class MatchesList extends React.Component {
     const users = [
       {
         name: "Carl",
-        avatar: "https://theblogblogdotblog.files.wordpress.com/2018/04/1500days.jpeg"
+        avatar: "https://theblogblogdotblog.files.wordpress.com/2018/04/1500days.jpeg",
+        age: 45
       },
       {
         name: "Brynn",
@@ -43,8 +44,11 @@ export default class MatchesList extends React.Component {
       <ScrollView style={styles.container}>
         {users.map((user, i) => {
           return (
-            <TouchableOpacity onPress={() => this.props.navigation.navigate("MatchesShow")}>
-              <Card key={i} containerStyle={{ padding: 0 }}>
+            <TouchableOpacity
+              key={i}
+              onPress={() => this.props.navigation.navigate("MatchesShow", { user })}
+            >
+              <Card containerStyle={{ padding: 0 }}>
                 <ListItem
                   // key={i}
                   title={user.name}

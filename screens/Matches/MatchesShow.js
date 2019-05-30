@@ -20,17 +20,21 @@ export default class MatchesShow extends React.Component {
   };
 
   render() {
+    const user = this.props.navigation.getParam("user");
+    debugger;
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <Image
             style={styles.profileImg}
-            source={require("../../assets/images/mrMoneyMustache.jpg")}
+            source={{
+              uri: user.avatar
+            }}
             resizeMode="contain"
           />
           <View style={styles.userInfoContainer}>
-            <Text style={styles.userInfoText}>Ryan</Text>
-            <Text style={styles.userInfoText}>26</Text>
+            <Text style={styles.userInfoText}>{user.name}</Text>
+            <Text style={styles.userInfoText}>{user.age}</Text>
           </View>
         </ScrollView>
 
