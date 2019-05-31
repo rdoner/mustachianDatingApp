@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     // paddingTop: 30
+    //
   },
   profileImg: {
     height: 400,
