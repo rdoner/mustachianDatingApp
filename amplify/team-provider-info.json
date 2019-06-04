@@ -9,6 +9,11 @@
             "UnauthRoleName": "mustachiandatingapp-dev-20190604134123-unauthRole",
             "StackName": "mustachiandatingapp-dev-20190604134123",
             "StackId": "arn:aws:cloudformation:us-east-1:963645550404:stack/mustachiandatingapp-dev-20190604134123/bc4662f0-8700-11e9-b68b-0a79b0f3a14a"
+        },
+        "categories": {
+            "auth": {
+                "mustachiandatingappd7470082": {}
+            }
         }
     }
 }

@@ -1,1 +1,8 @@
-{}
+{
+	"auth": {
+		"mustachiandatingappd7470082": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation"
+		}
+	}
+}
