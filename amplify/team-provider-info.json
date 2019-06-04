@@ -1,0 +1,14 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "mustachiandatingapp-dev-20190604134123-authRole",
+            "UnauthRoleArn": "arn:aws:iam::963645550404:role/mustachiandatingapp-dev-20190604134123-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::963645550404:role/mustachiandatingapp-dev-20190604134123-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "mustachiandatingapp-dev-20190604134123-deployment",
+            "UnauthRoleName": "mustachiandatingapp-dev-20190604134123-unauthRole",
+            "StackName": "mustachiandatingapp-dev-20190604134123",
+            "StackId": "arn:aws:cloudformation:us-east-1:963645550404:stack/mustachiandatingapp-dev-20190604134123/bc4662f0-8700-11e9-b68b-0a79b0f3a14a"
+        }
+    }
+}
