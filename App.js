@@ -1,8 +1,8 @@
 import React from "react";
-import { Platform, StatusBar, StyleSheet, View } from "react-native";
+import { Platform, StatusBar, StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { AppLoading, Asset, Font, Icon } from "expo";
 import AppNavigator from "./navigation/AppNavigator";
-import Amplify, { Auth } from "aws-amplify";
+import Amplify, { Auth, Storage, API } from "aws-amplify";
 import awsmobile from "./aws-exports";
 import { withAuthenticator } from "aws-amplify-react-native";
 
@@ -11,6 +11,27 @@ Amplify.configure(awsmobile);
 class App extends React.Component {
   state = {
     isLoadingComplete: false
+  };
+
+  post = async () => {
+    console.log("calling api");
+    const response = await API.post("mustachianAPI", "/items", {
+      body: {
+        id: "1",
+        name: "hello amplify!"
+      }
+    });
+    alert(JSON.stringify(response, null, 2));
+  };
+  get = async () => {
+    console.log("calling api");
+    const response = await API.get("mustachianAPI", "/items/object/1");
+    alert(JSON.stringify(response, null, 2));
+  };
+  list = async () => {
+    console.log("calling api");
+    const response = await API.get("mustachianAPI", "/items/1");
+    alert(JSON.stringify(response, null, 2));
   };
 
   render() {
@@ -25,6 +46,21 @@ class App extends React.Component {
     } else {
       return (
         <View style={styles.container}>
+          <View className="App">
+            <Text> Pick a file</Text>
+            {/* <input type="file" onChange={this.uploadFile} /> */}
+            <TouchableOpacity onPress={this.post}>
+              <Text>POST</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.get}>
+              <Text>GET</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.list}>
+              <Text>LIST</Text>
+            </TouchableOpacity>
+
+            {/* <S3Album level="private" path="" /> */}
+          </View>
           {Platform.OS === "ios" && <StatusBar barStyle="default" />}
           <AppNavigator />
         </View>
