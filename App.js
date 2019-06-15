@@ -2,11 +2,12 @@ import React from "react";
 import { Platform, StatusBar, StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { AppLoading, Asset, Font, Icon } from "expo";
 import AppNavigator from "./navigation/AppNavigator";
-import Amplify, { Auth, Storage, API } from "aws-amplify";
+import Amplify, { Analytics, Auth, Storage, API } from "aws-amplify";
 import awsmobile from "./aws-exports";
-import { withAuthenticator } from "aws-amplify-react-native";
+import { withAuthenticator, S3Album } from "aws-amplify-react-native";
 
 Amplify.configure(awsmobile);
+Storage.configure({ level: "private" });
 
 class App extends React.Component {
   state = {
@@ -17,8 +18,13 @@ class App extends React.Component {
     console.log("calling api");
     const response = await API.post("mustachianAPI", "/items", {
       body: {
-        id: "1",
-        name: "hello amplify!"
+        id: "3",
+        first_name: "Ryan",
+        last_name: "Doner",
+        gender: "male",
+        email: "rdoner@email.arizona.edu",
+        location: "Boulder",
+        photos: ["ryanelliotdoner.com"]
       }
     });
     alert(JSON.stringify(response, null, 2));
@@ -30,9 +36,22 @@ class App extends React.Component {
   };
   list = async () => {
     console.log("calling api");
-    const response = await API.get("mustachianAPI", "/items/1");
+    const response = await API.get("mustachianMatchesAPI", "/matches/1");
     alert(JSON.stringify(response, null, 2));
   };
+
+  uploadFile = evt => {
+    const file = evt.target.files[0];
+    const name = file.name;
+
+    Storage.put(name, file).then(() => {
+      this.setState({ file: name });
+    });
+  };
+
+  componentDidMount() {
+    Analytics.record("Amplify_CLI");
+  }
 
   render() {
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
@@ -46,9 +65,10 @@ class App extends React.Component {
     } else {
       return (
         <View style={styles.container}>
-          <View className="App">
-            <Text> Pick a file</Text>
-            {/* <input type="file" onChange={this.uploadFile} /> */}
+          <View className="App" style={{ marginTop: 20 }}>
+            {/* <Text> Pick a file</Text>
+            <input type="file" onChange={this.uploadFile} />
+            <S3Album level="private" path="" /> */}
             <TouchableOpacity onPress={this.post}>
               <Text>POST</Text>
             </TouchableOpacity>

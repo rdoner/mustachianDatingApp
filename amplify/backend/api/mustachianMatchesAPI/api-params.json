@@ -1,8 +1,8 @@
 {
     "paths": [
         {
-            "name": "/items",
-            "lambdaFunction": "mustachianLambda",
+            "name": "/matches",
+            "lambdaFunction": "mustachianMatchesLambda",
             "privacy": {
                 "protected": true,
                 "auth": [
@@ -22,28 +22,27 @@
             }
         }
     ],
-    "resourceName": "mustachianAPI",
-    "apiName": "mustachianAPI",
+    "resourceName": "mustachianMatchesAPI",
+    "apiName": "mustachianMatchesAPI",
     "functionArns": [
         {
-            "lambdaFunction": "mustachianLambda"
+            "lambdaFunction": "mustachianMatchesLambda"
         }
     ],
     "privacy": {
-        "auth": 2,
-        "unauth": 2,
+        "auth": 1,
+        "unauth": 1,
         "authRoleName": "mustachiandatingapp-dev-20190604134123-authRole",
         "unAuthRoleName": "mustachiandatingapp-dev-20190604134123-unauthRole"
     },
     "dependsOn": [
         {
             "category": "function",
-            "resourceName": "mustachianLambda",
+            "resourceName": "mustachianMatchesLambda",
             "attributes": [
                 "Name",
                 "Arn"
             ]
         }
-    ],
-    "uuid": "42b0ba92"
+    ]
 }

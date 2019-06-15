@@ -12,7 +12,10 @@
         },
         "categories": {
             "auth": {
-                "mustachiandatingappd7470082": {}
+                "mustachiandatingappd7470082": {
+                    "facebookAppId": "1079436388922780",
+                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Facebook\",\"client_id\":\"1079436388922780\",\"client_secret\":\"57921f015fc991e86a893a4759cb9710\"}]"
+                }
             }
         }
     }

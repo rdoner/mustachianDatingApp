@@ -19,22 +19,32 @@ export default class MatchesShow extends React.Component {
     header: null
   };
 
+  // componentDidMount() {
+  //   const { first_name, age } = this.get;
+  // }
+
+  // get = async () => {
+  //   console.log("calling api");
+  //   const response = await API.get("mustachianAPI", "/items/object/2");
+  //   alert(JSON.stringify(response, null, 2));
+  //   return response;
+  // };
+
   render() {
     const user = this.props.navigation.getParam("user");
-    debugger;
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <Image
+          {/* <Image
             style={styles.profileImg}
             source={{
               uri: user.avatar
             }}
             resizeMode="contain"
-          />
+          /> */}
           <View style={styles.userInfoContainer}>
             <Text style={styles.userInfoText}>{user.name}</Text>
-            <Text style={styles.userInfoText}>{user.age}</Text>
+            {/* <Text style={styles.userInfoText}>{user.age}</Text> */}
           </View>
         </ScrollView>
 

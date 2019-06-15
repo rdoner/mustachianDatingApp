@@ -1,6 +1,6 @@
 {
     "identityPoolName": "mustachiandatingappd7470082_identitypool_d7470082",
-    "allowUnauthenticatedIdentities": true,
+    "allowUnauthenticatedIdentities": false,
     "lambdaLogPolicy": "mustac_d7470082_lambda_log_policy",
     "openIdLambdaRoleName": "mustac_d7470082_openid_lambda_role",
     "openIdRolePolicy": "mustac_d7470082_openid_pass_role_policy",
@@ -21,7 +21,7 @@
     "smsVerificationMessage": "Your verification code is {####}",
     "emailVerificationSubject": "Your verification code",
     "emailVerificationMessage": "Your verification code is {####}",
-    "defaultPasswordPolicy": false,
+    "defaultPasswordPolicy": true,
     "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [],
     "requiredAttributes": [
@@ -64,5 +64,16 @@
             "Arn"
         ]
     },
-    "useDefault": "default"
+    "useDefault": "manual",
+    "thirdPartyAuth": true,
+    "authProviders": [
+        "graph.facebook.com"
+    ],
+    "hostedUI": true,
+    "hostedUIDomainName": "mustachiandatingappde8f0afb-de8f0afb",
+    "authProvidersUserPool": [
+        "Facebook"
+    ],
+    "hostedUIProviderMeta": "[{\"ProviderName\":\"Facebook\",\"authorize_scopes\":\"email,public_profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"id\"}}]",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"exp://127.0.0.1:19002/--/\"],\"LogoutURLs\":[\"exp://127.0.0.1:19002/--/\"]}"
 }

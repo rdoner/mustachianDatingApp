@@ -9,6 +9,14 @@
 		"mustachianDB": {
 			"service": "DynamoDB",
 			"providerPlugin": "awscloudformation"
+		},
+		"mustachianStorage": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation"
+		},
+		"mustachianMatches": {
+			"service": "DynamoDB",
+			"providerPlugin": "awscloudformation"
 		}
 	},
 	"function": {
@@ -20,6 +28,21 @@
 				{
 					"category": "storage",
 					"resourceName": "mustachianDB",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			]
+		},
+		"mustachianMatchesLambda": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true,
+			"dependsOn": [
+				{
+					"category": "storage",
+					"resourceName": "mustachianMatches",
 					"attributes": [
 						"Name",
 						"Arn"
@@ -42,6 +65,26 @@
 					]
 				}
 			]
+		},
+		"mustachianMatchesAPI": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "mustachianMatchesLambda",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			]
+		}
+	},
+	"analytics": {
+		"mustachiandatingapp": {
+			"service": "Pinpoint",
+			"providerPlugin": "awscloudformation"
 		}
 	}
 }
