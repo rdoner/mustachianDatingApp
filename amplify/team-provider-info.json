@@ -1,0 +1,21 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "mustachiandatingapp-dev-20190614215515-authRole",
+            "UnauthRoleArn": "arn:aws:iam::963645550404:role/mustachiandatingapp-dev-20190614215515-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::963645550404:role/mustachiandatingapp-dev-20190614215515-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "mustachiandatingapp-dev-20190614215515-deployment",
+            "UnauthRoleName": "mustachiandatingapp-dev-20190614215515-unauthRole",
+            "StackName": "mustachiandatingapp-dev-20190614215515",
+            "StackId": "arn:aws:cloudformation:us-east-1:963645550404:stack/mustachiandatingapp-dev-20190614215515/62b4f570-8f21-11e9-a04a-12f08cf73b28"
+        },
+        "categories": {
+            "auth": {
+                "mustachiandatingappdfd3b4ee": {
+                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Facebook\",\"client_id\":\"1079436388922780\",\"client_secret\":\"57921f015fc991e86a893a4759cb9710\"}]"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,8 @@
+{
+	"auth": {
+		"mustachiandatingappdfd3b4ee": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation"
+		}
+	}
+}
