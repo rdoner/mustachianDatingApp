@@ -1,7 +1,0 @@
-{
-    "tableName": "mustachianMatches",
-    "partitionKeyName": "matchId",
-    "partitionKeyType": "S",
-    "sortKeyName": "user1",
-    "sortKeyType": "S"
-}

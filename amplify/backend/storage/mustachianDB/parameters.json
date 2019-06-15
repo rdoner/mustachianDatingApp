@@ -1,5 +1,0 @@
-{
-    "tableName": "mustachianDB",
-    "partitionKeyName": "id",
-    "partitionKeyType": "S"
-}

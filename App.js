@@ -4,50 +4,51 @@ import { AppLoading, Asset, Font, Icon } from "expo";
 import AppNavigator from "./navigation/AppNavigator";
 import Amplify, { Analytics, Auth, Storage, API } from "aws-amplify";
 import awsmobile from "./aws-exports";
-import { withAuthenticator, S3Album } from "aws-amplify-react-native";
+import { withOAuth } from "aws-amplify-react";
+// import { withAuthenticator, S3Album } from "aws-amplify-react-native";
 
 Amplify.configure(awsmobile);
-Storage.configure({ level: "private" });
+// Storage.configure({ level: "private" });
 
 class App extends React.Component {
   state = {
     isLoadingComplete: false
   };
 
-  post = async () => {
-    console.log("calling api");
-    const response = await API.post("mustachianAPI", "/items", {
-      body: {
-        id: "3",
-        first_name: "Ryan",
-        last_name: "Doner",
-        gender: "male",
-        email: "rdoner@email.arizona.edu",
-        location: "Boulder",
-        photos: ["ryanelliotdoner.com"]
-      }
-    });
-    alert(JSON.stringify(response, null, 2));
-  };
-  get = async () => {
-    console.log("calling api");
-    const response = await API.get("mustachianAPI", "/items/object/1");
-    alert(JSON.stringify(response, null, 2));
-  };
-  list = async () => {
-    console.log("calling api");
-    const response = await API.get("mustachianMatchesAPI", "/matches/1");
-    alert(JSON.stringify(response, null, 2));
-  };
+  // post = async () => {
+  //   console.log("calling api");
+  //   const response = await API.post("mustachianAPI", "/items", {
+  //     body: {
+  //       id: "3",
+  //       first_name: "Ryan",
+  //       last_name: "Doner",
+  //       gender: "male",
+  //       email: "rdoner@email.arizona.edu",
+  //       location: "Boulder",
+  //       photos: ["ryanelliotdoner.com"]
+  //     }
+  //   });
+  //   alert(JSON.stringify(response, null, 2));
+  // };
+  // get = async () => {
+  //   console.log("calling api");
+  //   const response = await API.get("mustachianAPI", "/items/object/1");
+  //   alert(JSON.stringify(response, null, 2));
+  // };
+  // list = async () => {
+  //   console.log("calling api");
+  //   const response = await API.get("mustachianMatchesAPI", "/matches/1");
+  //   alert(JSON.stringify(response, null, 2));
+  // };
 
-  uploadFile = evt => {
-    const file = evt.target.files[0];
-    const name = file.name;
+  // uploadFile = evt => {
+  //   const file = evt.target.files[0];
+  //   const name = file.name;
 
-    Storage.put(name, file).then(() => {
-      this.setState({ file: name });
-    });
-  };
+  //   Storage.put(name, file).then(() => {
+  //     this.setState({ file: name });
+  //   });
+  // };
 
   componentDidMount() {
     Analytics.record("Amplify_CLI");
@@ -69,7 +70,7 @@ class App extends React.Component {
             {/* <Text> Pick a file</Text>
             <input type="file" onChange={this.uploadFile} />
             <S3Album level="private" path="" /> */}
-            <TouchableOpacity onPress={this.post}>
+            {/* <TouchableOpacity onPress={this.post}>
               <Text>POST</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={this.get}>
@@ -78,6 +79,9 @@ class App extends React.Component {
             <TouchableOpacity onPress={this.list}>
               <Text>LIST</Text>
             </TouchableOpacity>
+            <TouchableOpacity onPress={this.props.OAuthSignIn}>
+              <Text>Sign in with Facebook</Text>
+            </TouchableOpacity> */}
 
             {/* <S3Album level="private" path="" /> */}
           </View>
@@ -115,7 +119,7 @@ class App extends React.Component {
   };
 }
 
-export default withAuthenticator(App);
+export default withOAuth(App);
 
 const styles = StyleSheet.create({
   container: {
